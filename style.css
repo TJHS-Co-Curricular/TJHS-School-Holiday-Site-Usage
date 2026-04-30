@@ -137,7 +137,7 @@ td:last-child {
 
 th {
     background-color: #f8fafc;
-    font-weight: 600;
+    font-weight: bold;
     color: var(--text-muted);
     font-size: 0.8rem;
     position: sticky;
@@ -145,6 +145,7 @@ th {
     z-index: 10;
     border-bottom: 2px solid var(--border-color);
     /* Stronger bottom border for sticky header */
+    text-align: center;
 }
 
 tbody tr:last-child td {
