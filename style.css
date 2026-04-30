@@ -25,7 +25,8 @@ body {
 }
 
 .app-container {
-    max-width: 95vw; /* Use more of the screen width for wide tables */
+    max-width: 95vw;
+    /* Use more of the screen width for wide tables */
     margin: 0 auto;
     padding: 2rem 1rem;
 }
@@ -51,7 +52,8 @@ header p {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
+    /* Allow wrapping on smaller screens */
 }
 
 .venue-btn {
@@ -83,7 +85,8 @@ header p {
     background: var(--card-bg);
     border-radius: 12px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
     overflow-y: hidden;
     position: relative;
 }
@@ -92,15 +95,18 @@ header p {
 .table-container::-webkit-scrollbar {
     height: 12px;
 }
+
 .table-container::-webkit-scrollbar-track {
     background: #f1f5f9;
     border-radius: 0 0 12px 12px;
 }
+
 .table-container::-webkit-scrollbar-thumb {
     background-color: #cbd5e1;
     border-radius: 6px;
     border: 3px solid #f1f5f9;
 }
+
 .table-container::-webkit-scrollbar-thumb:hover {
     background-color: #94a3b8;
 }
@@ -110,18 +116,22 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     text-align: left;
-    min-width: 800px; /* Ensure table doesn't collapse too much */
+    min-width: 800px;
+    /* Ensure table doesn't collapse too much */
 }
 
-th, td {
+th,
+td {
     padding: 0.75rem 1rem;
     border-bottom: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
     white-space: nowrap;
-    min-width: 110px; /* Give timeslots breathing room */
+    min-width: 110px;
+    /* Give timeslots breathing room */
 }
 
-th:last-child, td:last-child {
+th:last-child,
+td:last-child {
     border-right: none;
 }
 
@@ -133,7 +143,8 @@ th {
     position: sticky;
     top: 0;
     z-index: 10;
-    border-bottom: 2px solid var(--border-color); /* Stronger bottom border for sticky header */
+    border-bottom: 2px solid var(--border-color);
+    /* Stronger bottom border for sticky header */
 }
 
 tbody tr:last-child td {
@@ -141,9 +152,11 @@ tbody tr:last-child td {
 }
 
 /* Specific styling for the first column (Date) to make it stick */
-td:first-child, th:first-child {
+td:first-child,
+th:first-child {
     font-weight: 500;
-    background-color: #ffffff; /* Solid bg so text doesn't show underneath */
+    background-color: #ffffff;
+    /* Solid bg so text doesn't show underneath */
     color: var(--text-main);
     position: sticky;
     left: 0;
@@ -164,9 +177,10 @@ th:first-child {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 140px; /* Width of the first column */
+    left: 140px;
+    /* Width of the first column */
     width: 10px;
-    background: linear-gradient(to right, rgba(0,0,0,0.05), transparent);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.05), transparent);
     pointer-events: none;
     z-index: 15;
     opacity: 0;
@@ -205,10 +219,35 @@ td.slot-used {
 tbody tr:hover td {
     background-color: #f1f5f9;
 }
+
 /* Ensure sticky column also highlights on row hover */
 tbody tr:hover td:first-child {
     background-color: #f1f5f9;
 }
+
 tbody tr:hover td.slot-used {
     background-color: #fecaca;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+footer p {
+    margin: 0.25rem 0;
+}
+
+.footer-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
 }
