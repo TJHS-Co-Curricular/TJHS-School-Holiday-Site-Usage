@@ -1,0 +1,214 @@
+:root {
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --slot-empty: #f9fafb;
+    --slot-used: #fee2e2;
+    --slot-used-text: #991b1b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.app-container {
+    max-width: 95vw; /* Use more of the screen width for wide tables */
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+header p {
+    color: var(--text-muted);
+}
+
+.venue-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.venue-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.venue-btn:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+.venue-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+}
+
+.table-container {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden;
+    position: relative;
+}
+
+/* Custom scrollbar for better UX on Windows/Linux */
+.table-container::-webkit-scrollbar {
+    height: 12px;
+}
+.table-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 0 0 12px 12px;
+}
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 6px;
+    border: 3px solid #f1f5f9;
+}
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #94a3b8;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: left;
+    min-width: 800px; /* Ensure table doesn't collapse too much */
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    white-space: nowrap;
+    min-width: 110px; /* Give timeslots breathing room */
+}
+
+th:last-child, td:last-child {
+    border-right: none;
+}
+
+th {
+    background-color: #f8fafc;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid var(--border-color); /* Stronger bottom border for sticky header */
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Specific styling for the first column (Date) to make it stick */
+td:first-child, th:first-child {
+    font-weight: 500;
+    background-color: #ffffff; /* Solid bg so text doesn't show underneath */
+    color: var(--text-main);
+    position: sticky;
+    left: 0;
+    z-index: 20;
+    border-right: 1px solid var(--border-color);
+    min-width: 140px;
+}
+
+/* Specific styling for the top-left cell to stay on top of both scroll axes */
+th:first-child {
+    background-color: #f8fafc;
+    z-index: 30;
+}
+
+/* Adding a visual shadow separator for the sticky column */
+.table-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 140px; /* Width of the first column */
+    width: 10px;
+    background: linear-gradient(to right, rgba(0,0,0,0.05), transparent);
+    pointer-events: none;
+    z-index: 15;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Status styling */
+td.slot-empty {
+    background-color: var(--slot-empty);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+td.slot-used {
+    background-color: var(--slot-used);
+    color: var(--slot-used-text);
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+/* Utilities */
+.hidden {
+    display: none;
+}
+
+.loading-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-size: 1.125rem;
+}
+
+/* Hover effects */
+tbody tr:hover td {
+    background-color: #f1f5f9;
+}
+/* Ensure sticky column also highlights on row hover */
+tbody tr:hover td:first-child {
+    background-color: #f1f5f9;
+}
+tbody tr:hover td.slot-used {
+    background-color: #fecaca;
+}

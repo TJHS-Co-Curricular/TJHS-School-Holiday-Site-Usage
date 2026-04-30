@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026年05月份假期场地使用</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>2026年05月份假期场地使用</h1>
+            <p>只显示大礼堂，大讲堂，伯才堂</p>
+        </header>
+
+        <main>
+            <div class="venue-selector" id="venueSelector">
+                <!-- Venue tabs will be injected here -->
+            </div>
+
+            <div class="table-container">
+                <div class="loading-state" id="loadingState">
+                    Loading schedule data...
+                </div>
+                <table id="scheduleTable" class="hidden">
+                    <thead id="scheduleHead">
+                        <!-- Table headers will be injected here -->
+                    </thead>
+                    <tbody id="scheduleBody">
+                        <!-- Table rows will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026年05月份假期场地使用 • 由 GITHUB 驱动</p>
+        <p>
+            <a href="https://github.com/TJHS-Co-Curricular/TJHS-School-Holiday-Site-Usage" target="_blank"
+                rel="noopener noreferrer" class="footer-link">GITHUB</a>
+        </p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>
