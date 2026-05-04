@@ -197,8 +197,8 @@ td.slot-empty {
 }
 
 td.slot-used {
-    background-color: var(--slot-used);
-    color: var(--slot-used-text);
+    background-color: var(--slot-bg, var(--slot-used));
+    color: var(--slot-color, var(--slot-used-text));
     font-weight: 500;
     font-size: 0.875rem;
     text-align: center;
@@ -227,7 +227,7 @@ tbody tr:hover td:first-child {
 }
 
 tbody tr:hover td.slot-used {
-    background-color: #fecaca;
+    filter: brightness(0.95);
 }
 
 footer {
@@ -250,5 +250,7 @@ footer p {
 
 .footer-link:hover {
     color: var(--primary-hover);
+    text-decoration: underline;
+}
     text-decoration: underline;
 }
