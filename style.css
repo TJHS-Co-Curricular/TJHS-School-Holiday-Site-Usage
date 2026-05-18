@@ -28,8 +28,9 @@ body {
 }
 
 .app-container {
-    max-width: 1200px;
-    width: 95vw;
+    max-width: none;
+    width: fit-content;
+    min-width: 100%;
     margin: 0 auto;
     padding: 3rem 1rem;
 }
@@ -90,7 +91,7 @@ header p {
     background: var(--card-bg);
     border-radius: 16px;
     box-shadow: var(--shadow-md);
-    overflow-x: auto;
+    overflow-x: visible;
     overflow-y: hidden;
     position: relative;
     border: 1px solid var(--border-color);
@@ -119,7 +120,7 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     text-align: left;
-    min-width: 800px;
+    min-width: 100%;
 }
 
 th,
@@ -128,7 +129,7 @@ td {
     border-bottom: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
     white-space: nowrap;
-    min-width: 120px;
+    min-width: 130px;
 }
 
 th:last-child,
