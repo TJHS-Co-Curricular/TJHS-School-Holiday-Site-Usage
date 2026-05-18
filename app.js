@@ -151,8 +151,8 @@ function renderTable(data) {
           }
           
           const h = userColorMap.get(cellValue);
-          td.style.setProperty("--slot-bg", `hsl(${h}, 70%, 85%)`);
-          td.style.setProperty("--slot-color", `hsl(${h}, 80%, 25%)`);
+          td.style.setProperty("--slot-bg", `hsl(${h}, 70%, 90%)`);
+          td.style.setProperty("--slot-color", `hsl(${h}, 80%, 30%)`);
         } else {
           td.classList.add("slot-empty");
         }
