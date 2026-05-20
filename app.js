@@ -1,14 +1,14 @@
 const venues = [
-  { id: "VenueA", name: "大礼堂", file: "Venue/VenueA.csv" },
-  { id: "VenueB", name: "大讲堂", file: "Venue/VenueB.csv" },
-  { id: "VenueC", name: "伯才堂", file: "Venue/VenueC.csv" },
+  { id: "VenueA", name: "大礼堂", file: "@main/Venue/VenueA.csv" },
+  { id: "VenueB", name: "大讲堂", file: "@main/Venue/VenueB.csv" },
+  { id: "VenueC", name: "伯才堂", file: "@main/Venue/VenueC.csv" },
 ];
 
 let currentVenueId = venues[0].id;
 let venueData = {}; // Cache to store fetched data
 
 // Load saved colors from localStorage or initialize a new Map
-const savedColors = localStorage.getItem('userColorMap');
+const savedColors = localStorage.getItem("userColorMap");
 const userColorMap = savedColors ? new Map(JSON.parse(savedColors)) : new Map();
 
 const DOM = {
@@ -120,7 +120,7 @@ function renderTable(data) {
       if (index > 0) {
         if (cellValue) {
           td.classList.add("slot-used");
-          
+
           if (!userColorMap.has(cellValue)) {
             let randomHue;
             let isValid = false;
@@ -130,11 +130,11 @@ function renderTable(data) {
             while (!isValid && attempts < 100) {
               randomHue = Math.floor(Math.random() * 360);
               isValid = true;
-              
+
               for (const existingHue of userColorMap.values()) {
                 let diff = Math.abs(randomHue - existingHue);
                 if (diff > 180) diff = 360 - diff;
-                
+
                 if (diff < minDistance) {
                   isValid = false;
                   break;
@@ -147,9 +147,12 @@ function renderTable(data) {
             }
 
             userColorMap.set(cellValue, randomHue);
-            localStorage.setItem('userColorMap', JSON.stringify(Array.from(userColorMap.entries())));
+            localStorage.setItem(
+              "userColorMap",
+              JSON.stringify(Array.from(userColorMap.entries())),
+            );
           }
-          
+
           const h = userColorMap.get(cellValue);
           td.style.setProperty("--slot-bg", `hsl(${h}, 70%, 90%)`);
           td.style.setProperty("--slot-color", `hsl(${h}, 80%, 30%)`);
