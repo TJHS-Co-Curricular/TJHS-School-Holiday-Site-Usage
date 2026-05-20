@@ -1,0 +1,26 @@
+<h2>How should we achieve "Full Size" without scroll bars?</h2>
+<p class="subtitle">The table currently has 12 columns. To remove the scroll bar, we need to decide how to handle the width.</p>
+
+<div class="options">
+  <div class="option" data-choice="narrow" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Narrower Columns (Fit-to-Screen)</h3>
+      <p>Reduce the width of each column so they all fit within your current browser window. No scrolling needed, but text might wrap more.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="expand" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Wide Page (Full Natural Width)</h3>
+      <p>Remove all width limits. The page will be as wide as the table needs to be. You won't have a scrollbar *inside* the table, but the whole page might scroll horizontally on small screens.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="transpose" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Vertical Layout (Transpose)</h3>
+      <p>Put the Time slots as rows and Dates as columns. Since there are fewer dates than time slots (usually), it fits vertically on most screens better.</p>
+    </div>
+  </div>
+</div>
