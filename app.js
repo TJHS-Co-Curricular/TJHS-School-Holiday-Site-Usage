@@ -1,7 +1,7 @@
 const venues = [
-  { id: "VenueA", name: "大礼堂", file: "@main/Venue/VenueA.csv" },
-  { id: "VenueB", name: "大讲堂", file: "@main/Venue/VenueB.csv" },
-  { id: "VenueC", name: "伯才堂", file: "@main/Venue/VenueC.csv" },
+  { id: "VenueA", name: "大礼堂", file: "Venue/VenueA.csv" },
+  { id: "VenueB", name: "大讲堂", file: "Venue/VenueB.csv" },
+  { id: "VenueC", name: "伯才堂", file: "Venue/VenueC.csv" },
 ];
 
 let currentVenueId = venues[0].id;
